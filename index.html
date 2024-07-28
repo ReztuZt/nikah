@@ -29,33 +29,35 @@
   <section id="hero"
     class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
     <main>
-     <h4>Kepada <span id="recipient-name">Bapak/Ibu/Saudara/i, </span></h4>
+       <h4>Kepada <span id="recipient-name">Bapak/Ibu/Saudara/i, </span></h4>
 
     <script>
-        // Fungsi untuk mendapatkan parameter dari URL
-        function getParameterByName(name, url = window.location.href) {
-            console.log('URL:', url); // Log URL untuk debugging
-            name = name.replace(/[\[\]]/g, '\\$&');
-            console.log('Parameter Name:', name); // Log nama parameter untuk debugging
-            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-            let results = regex.exec(url);
-            console.log('Regex Results:', results); // Log hasil regex untuk debugging
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fungsi untuk mendapatkan parameter dari URL
+            function getParameterByName(name, url = window.location.href) {
+                console.log('URL:', url); // Log URL untuk debugging
+                name = name.replace(/[\[\]]/g, '\\$&');
+                console.log('Parameter Name:', name); // Log nama parameter untuk debugging
+                let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+                let results = regex.exec(url);
+                console.log('Regex Results:', results); // Log hasil regex untuk debugging
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
 
-        // Mendapatkan nama dari parameter URL 'to'
-        let recipientName = getParameterByName('to');
-        console.log('Recipient Name:', recipientName); // Log nama penerima untuk debugging
+            // Mendapatkan nama dari parameter URL 'to'
+            let recipientName = getParameterByName('to');
+            console.log('Recipient Name:', recipientName); // Log nama penerima untuk debugging
 
-        // Jika nama ditemukan, ubah teks di elemen dengan ID 'recipient-name'
-        if (recipientName) {
-            document.getElementById('recipient-name').textContent = recipientName;
-            console.log('Name set to:', recipientName); // Log saat nama diubah
-        } else {
-            console.log('Recipient name not found'); // Log jika nama tidak ditemukan
-        }
+            // Jika nama ditemukan, ubah teks di elemen dengan ID 'recipient-name'
+            if (recipientName) {
+                document.getElementById('recipient-name').textContent = recipientName;
+                console.log('Name set to:', recipientName); // Log saat nama diubah
+            } else {
+                console.log('Recipient name not found'); // Log jika nama tidak ditemukan
+            }
+        });
     </script>
       <h1>Aditya & Veranika</h1>
       <p>Akan melangsungkan resepsi pernikahan dalam:</p>
